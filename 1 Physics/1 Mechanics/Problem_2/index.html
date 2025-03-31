@@ -172,6 +172,33 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-2">Problem 2</h1>
+<p>import matplotlib.pyplot as plt
+import numpy as np</p>
+<h1 id="constants">Constants</h1>
+<p>g = 9.81  # Acceleration due to gravity (m/s^2)
+dt = 0.01  # Time step (s)
+total_time = 2  # Total simulation time (s)</p>
+<h1 id="initial-conditions">Initial conditions</h1>
+<p>y0 = 10  # Initial height (m)
+v0 = 0   # Initial velocity (m/s)</p>
+<p>time = np.arange(0, total_time, dt)
+y_positions = []</p>
+<h1 id="simulation-loop">Simulation loop</h1>
+<p>y = y0
+v = v0
+for t in time:
+    y_positions.append(y)
+    v -= g * dt  # Update velocity
+    y += v * dt  # Update position
+    if y &lt; 0:  # Stop when hitting the ground
+        break</p>
+<h1 id="plot-results">Plot results</h1>
+<p>plt.plot(time[:len(y_positions)], y_positions)
+plt.xlabel("Time (s)")
+plt.ylabel("Height (m)")
+plt.title("Object Falling Under Gravity")
+plt.grid()
+plt.show()</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
